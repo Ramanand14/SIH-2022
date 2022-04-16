@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title> Login Form</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +11,11 @@
 	<!-- <img class="wave" src="img/wave.png"> -->
 	<div class="container">
 		<div class="img">
-			<img src="img/pngtree-blue-technology-background-banner-image_125518.jpg">
+			<img src="static/img/pngtree-blue-technology-background-banner-image_125518.jpg">
 		</div>
 		<div class="login-content">
 			<form action="index.html">
-				<img src="img/undraw_profile_pic_ic-5-t.svg">
+				<img src="static/img/undraw_profile_pic_ic-5-t.svg">
 				<h2 class="title">Welcome</h2>
            		<div class="input-div one">
            		   <div class="i">
@@ -46,6 +46,28 @@
         </div>
 		
     </div>
-    <script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+		const inputs = document.querySelectorAll(".input");
+		function addcl(){
+			let parent = this.parentNode.parentNode;
+			parent.classList.add("focus");
+		}
+		
+		function remcl(){
+			let parent = this.parentNode.parentNode;
+			if(this.value == ""){
+				parent.classList.remove("focus");
+			}
+		}
+		
+		
+		inputs.forEach(input => {
+			input.addEventListener("focus", addcl);
+			input.addEventListener("blur", remcl);
+		});
+		
+			</script>
+
+    
 </body>
 </html>
