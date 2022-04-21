@@ -8,16 +8,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<!-- <img class="wave" src="img/wave.png"> -->
-	<div class="container">
+
+	<div class="con">
 		<div class="img">
 			<img src="static/img/pngtree-blue-technology-background-banner-image_125518.jpg">
 		</div>
-		<div class="login-content">
-			<form onsubmit ="return validateForm()" action="index.html">
+		<div class="login">
+			<form onsubmit ="return validateForm()" action="index.html" method="post">
 				<img src="static/img/undraw_profile_pic_ic-5-t.svg">
 				<h2 class="title">Welcome</h2>
-           		<div class="input-div one">
+           		<div class="inp-m one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
@@ -26,7 +26,7 @@
            		   		<input type="email" class="input" name="Email" required>
            		   </div>
            		</div>
-				   <div class="input-div pass">
+				   <div class="inp-m pass">
 					<div class="i"> 
 						 <i class="fa fa-child"></i>
 					</div>
@@ -36,7 +36,7 @@
 				 </div>
 				 
 			  </div>
-           		<div class="input-div pass">
+           		<div class="inp-m pass">
            		   <div class="i"> 
            		    	<i class="fas fa-lock"></i>
            		   </div>
@@ -46,7 +46,7 @@
             	   </div>
 				   
             	</div>
-           		<div class="input-div pass">
+           		<div class="inp-m pass">
            		   <div class="i"> 
            		    	<i class="fas fa-lock"></i>
            		   </div>
@@ -59,7 +59,7 @@
             	</div>
             	<p id = "message2" style="color:red"> </p> 
             	
-				<button type="submit" class="btn" onclick="wrong_pass_alert()">Sign Up</button>
+				<button type="submit" class="bt" onclick="wrong_pass_alert()">Sign Up</button>
             </form>
         </div>
     </div>
