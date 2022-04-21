@@ -93,7 +93,7 @@ form{
 	transition: .3s;
 }
 
-.inp-m:before, .input-div:after{
+.inp-m:before, .inp-m:after{
 	content: '';
 	position: absolute;
 	bottom: -2px;
@@ -111,7 +111,7 @@ form{
 	left: 50%;
 }
 
-.inp-m.focus:before, .input-div.focus:after{
+.inp-m.focus:before, .inp-m.focus:after{
 	width: 50%;
 }
 
@@ -139,7 +139,7 @@ form{
 	font-family: 'poppins', sans-serif;
 }
 
-.inp.pass{
+.inp-m.pass{
 	margin-bottom: 4px;
 }
 
