@@ -1,16 +1,13 @@
 from flask import Flask, render_template, Response, request
 import cv2
-import datetime, time
-import os, sys
 import numpy as np
+import os, sys
+import datetime, time
 from threading import Thread
 
 
-global capture,rec_frame, grey, switch, neg, face, rec, out 
+global capture,rec_frame,  switch,  rec, out 
 capture=0
-grey=0
-neg=0
-face=0
 switch=1
 rec=0
 
