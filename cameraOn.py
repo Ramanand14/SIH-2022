@@ -8,7 +8,7 @@ from threading import Thread
 
 global capture,rec_frame,  switch,  rec, out 
 capture=0
-switch=1
+switch=0
 rec=0
 
 def gen_frames():  # generate frame by frame from camera
@@ -42,7 +42,7 @@ def gen_frames():  # generate frame by frame from camera
 
 #instatiate flask app  
 app = Flask(__name__, template_folder='template/HTML')
-camera = cv2.VideoCapture(0)
+#camera = cv2.VideoCapture(0)
 @app.route('/')
 def index():
     return render_template('camera.html')
@@ -70,7 +70,7 @@ def tasks():
     elif request.method=='GET':
         return render_template('camera.html')
     return render_template('camera.html')
-camera = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+#camera = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 if __name__ == '__main__':
     app.run()
     
