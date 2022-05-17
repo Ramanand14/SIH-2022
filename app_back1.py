@@ -19,10 +19,12 @@ while True:
     b = np.array(b)
     if len(b) != 0:
         cropped_image = img[b[0][1]:b[0][1]+b[0][3], b[0][0]:b[0][0]+b[0][2]]
-        cv2.imwrite('img'+str(i)+'.jpeg',cropped_image)
+        image = cv2.imencode('.jpg', cropped_image)
+        print(image[1])
+        #cv2.imwrite('img'+str(i)+'.jpeg',cropped_image)
         i+=1
         im = cv2.cvtColor(cropped_image, cv2.COLOR_RGB2GRAY)
-        print(b[0][0], ", ", b[0][1], ", ", b[0][2], ", ", b[0][3])  
+        #print(b[0][0], ", ", b[0][1], ", ", b[0][2], ", ", b[0][3])  
     
     # Display
     cv2.imshow("Image", img) 
