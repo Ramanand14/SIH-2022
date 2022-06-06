@@ -5,6 +5,18 @@ import os, sys
 import datetime, time
 from threading import Thread
 
+from flask import Flask,render_template,Response
+import cv2
+import numpy as np
+from PIL import Image
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+from keras.preprocessing.image import img_to_array
+import os
+import tensorflow as tf
+
+model = load_model(r'keras_model.h5')
+
 
 global capture,rec_frame,  switch,  rec, out 
 capture=0
@@ -16,21 +28,22 @@ def gen_frames():  # generate frame by frame from camera
     while True:
         success, frame = camera.read() 
         if success:
-               
-            if(capture):
-                capture=0
-                now = datetime.datetime.now()
-                p = os.path.sep.join(['shots', "shot_{}.png".format(str(now).replace(":",''))])
-                cv2.imwrite(p, frame)
-            
-            if(rec):
-                rec_frame=frame
-                frame= cv2.putText(cv2.flip(frame,1),"Recording...", (0,25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255),4)
-                frame=cv2.flip(frame,1)
-            
-                
             try:
-                ret, buffer = cv2.imencode('.jpg', cv2.flip(frame,1))
+                #flip the camera feed horizontally
+                frame = cv2.flip(frame, 1)
+                ret, buffer = cv2.imencode('.jpg', frame)
+            
+            #start prediction code:
+                img_array = cv2.resize(buffer, (224, 224))
+                img_array = np.array(img_array)
+                img_array = np.stack((img_array,)*3, axis = -1)
+                img_array = np.expand_dims(img_array, axis = 0)
+                list = ["Male", "Female", "No Human"]
+                prediction = model.predict(img_array)
+                x = np.argmax(prediction)
+            #text = list[x]
+                print(list[x])
+            #end of prediction
                 frame = buffer.tobytes()
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
