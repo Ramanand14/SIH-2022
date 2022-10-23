@@ -1,0 +1,92 @@
+<!doctype html>
+ 
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="{{ url_for('static', filename='../static/CSS/afterlogin.css')}}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  		<!-- Bootstrap CSS -->
+  		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  		<title>Home Page</title>
+	</head>
+
+	<body>
+  		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4B05B7;">
+    		<a class="navbar-brand" href="#"></a>
+    		<div class="side-bar">
+      			<div class="close-btn">
+        			<i class="fas fa-times"></i>
+      			</div>
+      	
+				<div class="menu">
+			        <div class="item"><a href="virtual">Virtual Picture Board</a></div>
+        			<div class="item"><a href="learning">Learning</a></div>
+        			<div class="item"><a href="quizmain">Quiz</a></div>
+        			<div class="item"><a href="logout">Log Out</a></div>
+      			</div>
+    		</div>
+    	
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+    		</button>
+    
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      			<ul class="navbar-nav mr-auto">
+        			<li class="nav-item active">
+      			</ul>
+      
+				<form class="form-inline my-2 my-lg-0">
+			        <ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+				            <a class="nav-link" href="#"><img src="../../static/Images/Avatar.svg" class="rounded-circle" style="width: 30px;" alt="Avatar" /></a>
+          				</li>
+        			</ul>
+      			</form>
+    		</div>
+    
+			<div class="menu-btn">
+      			<i class="fas fa-bars"></i>
+    		</div>
+  		</nav>
+
+		<div id="cm">
+		    <img src="{{ url_for('video_feed') }}" id="cm1" alt="Please click on start button">
+  		</div>
+  		
+		<div class="container">
+    		<div class="cont-2" >
+      			<div class="tb">
+        		<form method="post" action="{{ url_for('tasks') }}">
+          			<button id="btns" value="Stop/Start" type="submit" name="stop"><i class='fas fa-video' style='font-size:36px'></i></button>
+        		</form>
+      		</div>
+    	</div>
+		<script type="text/javascript">
+			$(document).ready(function () {
+			  //jquery for toggle sub menus
+			  $('.sub-btn').click(function () 
+			  {
+				$(this).next('.sub-menu').slideToggle();
+				$(this).find('.dropdown').toggleClass('rotate');
+			  });
+			  //jquery for expand and collapse the sidebar
+			  $('.menu-btn').click(function ()
+			   {
+				$('.side-bar').addClass('active');
+				$('.menu-btn').css("visibility", "hidden");
+			  });
+			  $('.close-btn').click(function () 
+			  {
+				$('.side-bar').removeClass('active');
+				$('.menu-btn').css("visibility", "visible");
+			  });
+			});
+		  </script>
+  		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+	</body>
+</html>

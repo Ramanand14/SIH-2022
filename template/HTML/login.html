@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+ 
+<html>
+	<head>
+		<title> Login Form</title>
+		<link rel="stylesheet" type="text/css" href="../../static/CSS/login.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="img">
+				<img src="../../static/Images/background.jpg">
+			</div>
+		
+			<div class="login-content">
+				<form action="/login" method="POST" enctype = "multipart/form-data">
+					<img src="../../static/Images/Avatar.svg">
+					<h2 class="title">Welcome</h2>
+           			<div class="input-div one">
+           		   		<div class="i">
+	           		   		<i class="fas fa-user"></i>
+           		   		</div>
+           		   
+						<div class="div">
+           		   			<h5>Email</h5>
+	           		   		<input type="email" class="input" name="email" required>
+           		   		</div>
+           			</div>
+           		
+					<div class="input-div pass">
+           		   		<div class="i"> 
+	           		    	<i class="fas fa-lock"></i>
+           		   		</div>
+           		   	
+						<div class="div">
+           		    		<h5>Password</h5>
+           		    		<input type="password" class="input" name="password" required>
+            	   		</div>
+            		</div>
+            		
+					<input type="submit" class="btn" value="Login">
+					
+					<br>
+				
+					<h4>Don't have an Account ? <a  href="#">Sign up</a></h4>
+            	</form>
+			</div>		
+    	</div>
+		
+		<script type="text/javascript">
+			const inputs = document.querySelectorAll(".input");
+			function addcl(){
+				let parent = this.parentNode.parentNode;
+				parent.classList.add("focus");
+			}
+		
+			function remcl(){
+				let parent = this.parentNode.parentNode;
+				if(this.value == ""){
+					parent.classList.remove("focus");
+				}
+			}
+				
+			inputs.forEach(input => {
+				input.addEventListener("focus", addcl);
+				input.addEventListener("blur", remcl);
+			});
+		</script>
+		<script src="../../static/JS/main.js"></script>
+	</body>
+</html>
